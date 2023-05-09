@@ -1,0 +1,8 @@
+version: v1
+name: buf.build/yuansai/yuansaiapis
+breaking:
+  use:
+    - FILE
+lint:
+  use:
+    - DEFAULT
