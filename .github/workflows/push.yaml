@@ -1,8 +1,10 @@
 name: buf-push
 
 on:
-  workflow_dispatch:
-    workflow: buf-pull-request
+  workflow_run:
+    workflows: ["buf-pull-request"]
+    types:
+      - completed
 
 jobs:
   build:
