@@ -22,4 +22,4 @@ jobs:
           against: "https://github.com/yuanssai/yuansaiapis.git#branch=main"
       - uses: bufbuild/buf-push-action@v1
         with:
-          buf_token: ${{ github.token }}
+          buf_token: ${{ secrets.BUF_API_TOKEN }}
