@@ -1,4 +1,4 @@
-name: 'Buf build'
+name: buf-push
 
 on:
   push:
@@ -20,3 +20,4 @@ jobs:
       - uses: bufbuild/buf-breaking-action@v1
         with:
           against: "https://github.com/yuanssai/yuansaiapis.git#branch=main"
+      - uses: bufbuild/buf-push-action@v1
