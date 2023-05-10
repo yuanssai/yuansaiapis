@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package proto.pet.v1;
+package sai.apis.pet.v1;
 
 import "google/type/datetime.proto";
 
