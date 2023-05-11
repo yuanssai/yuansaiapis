@@ -22,3 +22,8 @@ jobs:
           against: "https://github.com/yuanssai/yuansaiapis.git#branch=main"
       - run: buf --version
       - run: ls
+      - run: buf generate --template templates/buf.java.gen.yaml
+      - run: ls
+      - run: mv templates/build.gradle gen/
+      - run: cd gen
+      - run: ls
