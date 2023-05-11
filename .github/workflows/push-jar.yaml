@@ -16,7 +16,7 @@ jobs:
           buf_user: ${{ secrets.BUF_USER }}
           buf_api_token: ${{ secrets.BUF_API_TOKEN }}
           github_token: ${{ github.token }}
-        run: buf --version
+        run: ls
       - uses: bufbuild/buf-lint-action@v1
       - uses: bufbuild/buf-breaking-action@v1
         with:
