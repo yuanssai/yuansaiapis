@@ -1,0 +1,23 @@
+name: push-jar
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: bufbuild/buf-setup-action@v1
+        with:
+          version: "1.15.1"
+          buf_user: ${{ secrets.BUF_USER }}
+          buf_api_token: ${{ secrets.BUF_API_TOKEN }}
+          github_token: ${{ github.token }}
+        run: buf --version
+      - uses: bufbuild/buf-lint-action@v1
+      - uses: bufbuild/buf-breaking-action@v1
+        with:
+          against: "https://github.com/yuanssai/yuansaiapis.git#branch=main"
