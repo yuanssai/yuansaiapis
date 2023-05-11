@@ -25,5 +25,4 @@ jobs:
       - run: buf generate --template templates/buf.java.gen.yaml
       - run: ls
       - run: mv templates/build.gradle gen/
-      - run: cd gen
-      - run: ls
+      - run: cd gen && ls
