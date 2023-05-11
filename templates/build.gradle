@@ -17,11 +17,11 @@ dependencies {
 publishing {
     repositories {
         maven {
-            name = "GitHubPackages"
+            name = "OSSRH"
             url = uri("https://maven.pkg.github.com/yuanssai/yuansaiapis")
             credentials {
-                username = githubUser
-                password = githubToken
+                username = System.getenv("MAVEN_USERNAME")
+                password = System.getenv("MAVEN_PASSWORD")
             }
         }
     }
@@ -29,7 +29,7 @@ publishing {
         gpr(MavenPublication) {
             groupId 'com.sai.apis.pet.v1'
             artifactId 'yuansaiapis'
-            version '0.0.1'
+            version '0.0.2.1'
             from(components.java)
         }
     }
