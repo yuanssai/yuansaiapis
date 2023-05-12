@@ -29,7 +29,7 @@ publishing {
         gpr(MavenPublication) {
             groupId 'com.sai.apis.pet.v1'
             artifactId 'yuansaiapis'
-            version '0.0.2.2'
+            version(System.getenv("JAR_VERSION"))
             from(components.java)
         }
     }
