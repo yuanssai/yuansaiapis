@@ -33,9 +33,9 @@ jobs:
           java-version: 11
       - name: Publish package
         uses: gradle/gradle-build-action@v2
-        with:
-          gradle-version: release-candidate
-          arguments: publish -b gen/build.gradle
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+        with:
+          gradle-version: release-candidate
+          arguments: publish -b gen/build.gradle
