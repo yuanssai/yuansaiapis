@@ -41,7 +41,7 @@ jobs:
         with:
           gradle-version: release-candidate
           arguments: publish -b gen/build.gradle
-      - name: Write to workflow job summary
+      - name: Version
         run: |
-          SUMMARY=$'# Testing Job Summary\n## Second Level Heading\nHello GitHub'
+          SUMMARY=$'# Version Summary\n${{ steps.vars.outputs.sha_short }}'
           echo "$SUMMARY" >> $GITHUB_STEP_SUMMARY
