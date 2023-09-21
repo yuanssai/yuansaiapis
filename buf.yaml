@@ -7,4 +7,8 @@ breaking:
     - FILE
 lint:
   use:
-    - DEFAULT
+    - BASIC
+    - ENUM_ZERO_VALUE_SUFFIX
+    - FILE_LOWER_SNAKE_CASE
+    - SERVICE_SUFFIX
+    - PACKAGE_NO_IMPORT_CYCLE
