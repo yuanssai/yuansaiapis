@@ -1,10 +1,9 @@
-name: buf-push
+name: buf-ci
 
 on:
-  workflow_run:
-    workflows: ["buf-pull-request"]
-    types:
-      - completed
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -21,6 +20,3 @@ jobs:
       - uses: bufbuild/buf-breaking-action@v1
         with:
           against: "https://github.com/yuanssai/yuansaiapis.git#branch=main"
-      - uses: bufbuild/buf-push-action@v1
-        with:
-          buf_token: ${{ secrets.BUF_TOKEN }}
