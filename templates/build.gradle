@@ -27,7 +27,7 @@ publishing {
     }
     publications {
         gpr(MavenPublication) {
-            groupId 'com.sai.apis.pet.v1'
+            groupId 'com.motiong'
             artifactId 'yuansaiapis'
             version(System.getenv("JAR_VERSION"))
             from(components.java)
