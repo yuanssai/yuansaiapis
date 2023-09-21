@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package sai.apis.pet.v1;
+package motiong.pet.v1.services;
 
 import "google/protobuf/timestamp.proto";
 
