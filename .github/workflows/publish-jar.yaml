@@ -35,7 +35,7 @@ jobs:
       - name: Print Jar Version
         run: echo ${{ steps.vars.outputs.sha_short }}
       - name: Publish Jar Package
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v2.4.2
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
