@@ -20,19 +20,21 @@ jobs:
       - uses: bufbuild/buf-breaking-action@v1
         with:
           against: "https://github.com/yuanssai/yuansaiapis.git#branch=main"
-      - run: buf generate --template templates/buf.java.gen.yaml
-      - run: mv templates/build.gradle gen/
+      - name: Buf Generate
+        run: buf generate --template templates/buf.java.gen.yaml
+      - name: Move File
+        run: mv templates/build.gradle gen/
       - name: Set up Java
         uses: actions/setup-java@v3
         with:
           distribution: temurin
           java-version: 11
-      - name: Set outputs
+      - name: Get Jar Version
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-      - name: Check outputs
+      - name: Print Jar Version
         run: echo ${{ steps.vars.outputs.sha_short }}
-      - name: Publish package
+      - name: Publish Jar Package
         uses: gradle/gradle-build-action@v2
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
@@ -41,7 +43,7 @@ jobs:
         with:
           gradle-version: release-candidate
           arguments: publish -b gen/build.gradle
-      - name: Version
+      - name: Show Jar Version
         run: |
           SUMMARY=$'# Version Summary\n${{ steps.vars.outputs.sha_short }}'
           echo "$SUMMARY" >> $GITHUB_STEP_SUMMARY
